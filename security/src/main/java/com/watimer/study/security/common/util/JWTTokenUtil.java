@@ -38,7 +38,7 @@ public class JWTTokenUtil {
                 // 签发时间
                 .setIssuedAt(new Date())
                 // 签发者
-                .setIssuer("sans")
+                .setIssuer("watimer")
                 // 自定义属性 放入用户拥有权限
                 .claim("authorities", JSON.toJSONString(selfUserEntity.getAuthorities()))
                 // 失效时间
