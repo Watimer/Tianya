@@ -1,0 +1,27 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /search
+spring:
+  application:
+    name: elasticsearch
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+  jackson:
+    default-property-inclusion: non_null
+
+logging:
+  file: application.log
+  path: .
+  level:
+    root: info
+    com.watimer.study.elasticsearch: DEBUG
+
+index-entity:
+  configs:
+    - docCode: store
+      indexName: store
+      type: base
+      documentPath: com.watimer.study.elasticsearch.document.StoreDocument
