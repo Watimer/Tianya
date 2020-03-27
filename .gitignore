@@ -28,3 +28,9 @@ hs_err_pid*
 /event/HELP.md
 /event/mvnw
 /event/mvnw.cmd
+*.cmd
+elasticsearch/.mvn/wrapper/maven-wrapper.jar
+elasticsearch/.mvn/wrapper/maven-wrapper.properties
+elasticsearch/.mvn/wrapper/MavenWrapperDownloader.java
+mail/.mvn/wrapper/maven-wrapper.properties
+mail/.mvn/wrapper/maven-wrapper.jar
