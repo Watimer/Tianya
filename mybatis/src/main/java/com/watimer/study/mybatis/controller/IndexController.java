@@ -19,6 +19,7 @@ import java.util.List;
 @CrossOrigin()
 public class IndexController {
 
+
     @Autowired
     private IndexService indexService;
 
