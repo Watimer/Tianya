@@ -1,20 +1,15 @@
 package com.watimer.study.elasticsearch.controller;
 
-import com.watimer.study.elasticsearch.docindex.repo.StoreRepository;
 import com.watimer.study.elasticsearch.docindex.service.StoreDocumentIndexService;
-import com.watimer.study.elasticsearch.document.StoreDocument;
-import com.watimer.study.elasticsearch.document.store.StoreBaseInfo;
 import com.watimer.study.elasticsearch.exception.BaseException;
 import com.watimer.study.elasticsearch.global.Global;
 import com.watimer.study.elasticsearch.response.ResponseResult;
 import com.watimer.study.elasticsearch.search.impl.StoreSearchService;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.UUID;
 
 /**
  * store
@@ -29,55 +24,7 @@ public class StoreController extends BaseController {
     private StoreDocumentIndexService storeDocumentIndexService;
 
     @Resource
-    private StoreRepository storeRepository;
-
-    @Resource
     private StoreSearchService storeSearchService;
-
-    @Resource
-    private ElasticsearchTemplate elasticsearchTemplate;
-
-    @GetMapping("/createStoreIndex")
-    public int createIndex(){
-        StoreBaseInfo storeBaseInfo = new StoreBaseInfo();
-        String uuid = UUID.randomUUID().toString();
-        storeBaseInfo.setStoreId(uuid);
-        storeBaseInfo.setStoreName("测试");
-
-        boolean a = elasticsearchTemplate.createIndex(uuid,storeBaseInfo);
-        System.out.println(uuid);
-        if(a){
-            return 1;
-        }else{
-            return 0;
-        }
-    }
-
-    @GetMapping("/insertStore")
-    public int insertStore(){
-
-//        for(int i =0;i<100000000;i++){
-//            StoreBaseInfo storeBaseInfo = new StoreBaseInfo();
-//            String uuid = UUID.randomUUID().toString();
-//            storeBaseInfo.setStoreId(uuid);
-//            storeBaseInfo.setStoreName("测试");
-//            storeBaseInfo.setStatus(UUID.randomUUID().toString());
-//            storeBaseInfo.setRegionCode(UUID.randomUUID().toString());
-//            storeBaseInfo.setRegionName(UUID.randomUUID().toString());
-//            storeBaseInfo.setStoreNo(UUID.randomUUID().toString());
-//            storeBaseInfo.setUpdatedUserName(UUID.randomUUID().toString());
-//            StoreDocument storeDocument = new StoreDocument();
-//            storeDocument.setBaseInfo(storeBaseInfo);
-//            storeDocument.setId(UUID.randomUUID().toString());
-//
-//            storeRepository.save(storeDocument);
-//            System.out.println(i);
-//            storeRepository.deleteAll();
-//        }
-        storeRepository.deleteAll();
-        return 1;
-    }
-
 
     /**
      * 保存索引
