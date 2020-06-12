@@ -3,7 +3,7 @@
 ### 说明
 
 庚子之初，新冠横行。纵使集华夏之力，三月始消。
-工作三年有余，因此疫情，方觉唯有学习知识，日益进溢，才能在未来不确定的生活中，立于不败之地。
+工作三年有余，因此疫情，方觉唯有学习知识，日益精进，才能在未来不确定的生活中，立于不败之地。
 
 因为最近打算更深入的学习一下MyBatis框架，苦于探索合适的方法而迟迟不进，在此之际，
 突然想到大学时高数老师说的一句话：如果这道题你不会做，你就抄例题，如果抄完例题还不会，就继续抄例题，直到抄会为止。后来，我抄了四年的例题，顺利毕业。
@@ -54,7 +54,6 @@
 
 这里贴出现在的pom.xml文件
 ```xml
-
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -126,6 +125,15 @@
 
 ### 新建测试类
 ```java
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 
 @Controller
 @RequestMapping("/jdbc")
@@ -172,7 +180,17 @@ public class TestController {
 }
 
 ```
+    
 ### 执行结果
-<img src="/GitHub/Tianya/jdbc/src/main/resources/68d66be09524837607e8a44bb47017f.png">
+#### 接口请求
+![fe590f19c9ef9515c5637bd9ebb3ff23.png](en-resource://database/2091:0)
+
+#### 打印结果
+![dc53c283f9ce4dd71090a765e52d8bf3.png](en-resource://database/2089:1)
+
+
 
 ### 相关资料
+#### 数据库表信息
+![c9897672e53f6a219d6eac5ae7fca222.png](en-resource://database/2087:1)
+
