@@ -1,5 +1,6 @@
 package com.watimer.study.elasticsearch.controller;
 
+import com.fasterxml.jackson.databind.node.IntNode;
 import com.watimer.study.elasticsearch.docindex.repo.StoreRepository;
 import com.watimer.study.elasticsearch.docindex.service.StoreDocumentIndexService;
 import com.watimer.study.elasticsearch.document.StoreDocument;
@@ -55,29 +56,32 @@ public class StoreController extends BaseController {
 
     @GetMapping("/insertStore")
     public int insertStore(){
+        insert(1,1,10000000);
 
-//        for(int i =0;i<100000000;i++){
-//            StoreBaseInfo storeBaseInfo = new StoreBaseInfo();
-//            String uuid = UUID.randomUUID().toString();
-//            storeBaseInfo.setStoreId(uuid);
-//            storeBaseInfo.setStoreName("测试");
-//            storeBaseInfo.setStatus(UUID.randomUUID().toString());
-//            storeBaseInfo.setRegionCode(UUID.randomUUID().toString());
-//            storeBaseInfo.setRegionName(UUID.randomUUID().toString());
-//            storeBaseInfo.setStoreNo(UUID.randomUUID().toString());
-//            storeBaseInfo.setUpdatedUserName(UUID.randomUUID().toString());
-//            StoreDocument storeDocument = new StoreDocument();
-//            storeDocument.setBaseInfo(storeBaseInfo);
-//            storeDocument.setId(UUID.randomUUID().toString());
-//
-//            storeRepository.save(storeDocument);
-//            System.out.println(i);
-//            storeRepository.deleteAll();
-//        }
-        storeRepository.deleteAll();
         return 1;
     }
 
+    private int insert(int a, int numStart, int numEnd){
+        for(int i = numStart;i<numEnd;i++){
+            StoreBaseInfo storeBaseInfo = new StoreBaseInfo();
+            String uuid = UUID.randomUUID().toString();
+            storeBaseInfo.setStoreId(uuid);
+            storeBaseInfo.setStoreName("测试"+UUID.randomUUID().toString());
+            storeBaseInfo.setStatus(UUID.randomUUID().toString());
+            storeBaseInfo.setRegionCode(UUID.randomUUID().toString());
+            storeBaseInfo.setRegionName(UUID.randomUUID().toString());
+            storeBaseInfo.setStoreNo(UUID.randomUUID().toString());
+            storeBaseInfo.setUpdatedUserName(UUID.randomUUID().toString());
+            StoreDocument storeDocument = new StoreDocument();
+            storeDocument.setBaseInfo(storeBaseInfo);
+            storeDocument.setId(UUID.randomUUID().toString());
+
+            storeRepository.save(storeDocument);
+            System.out.println(i);
+//            storeRepository.deleteAll();
+        }
+        return a;
+    }
 
     /**
      * 保存索引
